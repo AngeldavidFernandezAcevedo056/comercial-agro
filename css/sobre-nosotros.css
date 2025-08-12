@@ -1,4 +1,7 @@
-.sobre-nosotros {
+
+body{
+  background-color: #2f9d87;
+}.sobre-nosotros {
     background-color: #ffffff;
     padding: 60px 20px;
     margin: 40px auto;

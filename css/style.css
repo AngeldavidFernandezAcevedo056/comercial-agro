@@ -1,0 +1,618 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+
+}
+
+body,
+html {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    font-size: 18px;
+
+}
+
+main {
+    flex: 1;
+
+}
+
+body {
+    background-color: #2f9d87;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 0;
+
+}
+
+a,
+li {
+    color: #f3f0ed;
+}
+
+a,
+li {
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    white-space: nowrap;
+    background-color: #785739;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    gap: 15px;
+    padding: 30px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+
+}
+
+header h1 {
+    font-size: 1.8rem;
+    color: #fff;
+    font-weight: bolder;
+    font-family: Arial, sans-serif;
+}
+
+.nav-menu ul,
+button {
+    display: flex;
+    align-items: end;
+    font-size: 15px;
+    gap: 15px;
+
+
+}
+
+.nav-menu li,
+ul {
+    font-size: 22px;
+}
+
+.nav-menu li,
+button {
+
+    margin-right: 2rem;
+    gap: 5px;
+
+
+}
+
+.nav-menu a:hover {
+    color: #2f9d87;
+}
+
+.nav-menu li:hover {
+    transform: scale(1.05);
+
+}
+
+.abrir-nav,
+.cerrar-menu {
+    display: none;
+}
+
+@media screen and (max-width: 760px) {
+
+    .abrir-nav,
+    .cerrar-menu {
+        display: block;
+        cursor: pointer;
+        border: 0;
+        font-size: 1.25rem;
+        background-color: transparent;
+    }
+
+    .abrir-nav {
+        color: #925927;
+    }
+
+    .cerrar-menu {
+        color: #785739;
+    }
+
+    .nav-menu {
+        gap: 1rem;
+        display: flex;
+        align-items: end;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #925927;
+        padding: 1rem;
+        bottom: 0;
+        opacity: 0;
+        visibility: hidden;
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
+        transition: visibility 0.3s, opacity 0.3s ease-in-out;
+        /* Transición suave */
+
+
+
+    }
+
+    .nav-menu.abierto {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-list {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+
+    }
+
+    .nav-menu:focus-within input {
+        width: 240px;
+    }
+
+
+}
+
+
+
+.buscar {
+    position: relative;
+    padding: 10px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+
+}
+
+.buscar input {
+    width: 0px;
+    height: 40px;
+    font-size: 18px;
+    color:black;
+    outline: none;
+    border-radius: 25px;
+    transition: all 0.9s ease;
+    text-align: center;
+    border: none;
+    opacity: 0.5;
+
+}
+
+
+.boton {
+    line-height: 55px;
+    height: 55px;
+    width: 55px;
+    text-align: center;
+    justify-content: center;
+    background-color: #785739;
+    color: rgb(248, 246, 246);
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+
+
+.buscar:hover input {
+    width: 240px;
+}
+
+.buscar:focus-within input {
+    width: 240px;
+    opacity: 1;
+}
+
+@media screen and (max-width:760px) {
+    .buscar {
+        flex-direction: column;
+        /* Cambia la dirección del buscador a columna */
+        width: 25%;
+        /* Ajusta el ancho al 100% */
+    }
+
+    .buscar input {
+        width: 0%;
+        /* Ajusta el ancho del input al 100% */
+        font-size: 16px;
+        /* Reduce el tamaño de la fuente */
+        height: 25px;
+        /* Ajusta la altura del input */
+    }
+
+    .boton {
+        display: flex;
+        width: 25px;
+        /* Reduce el tamaño del botón */
+        height: 25px;
+        font-size: 14px;
+        /* Ajusta el tamaño de la fuente */
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+
+.prod-carrucel {
+    align-items: center;
+    text-align: center;
+    font-size: 1.8rem;
+    margin: 15px auto;
+    padding: 25px;
+    color: white;
+}
+
+.carrucel {
+    width: 490px;
+    height: auto;
+    margin: 50px auto 0;
+    overflow: hidden;
+    padding: 10px;
+    border-radius: 10px;
+
+}
+
+.carrucel {
+    width: 550px;
+    height: auto;
+    margin: 50px auto;
+    /* Centra el carrusel horizontalmente */
+    overflow: hidden;
+    padding: 20px;
+    /* Ajusta el padding según sea necesario */
+    border-radius: 10px;
+    position: relative;
+    /* Cambiar de absolute a relative */
+    transform: none;
+    /* Elimina el translate */
+    top: auto;
+    /* Elimina la posición fija */
+    left: auto;
+    /* Elimina la posición fija */
+}
+
+.carrucel ul {
+    display: flex;
+    padding: 0;
+    width: 450%;
+    animation: slide 25s infinite alternate ease-in-out;
+
+}
+
+.carrucel li {
+    list-style: none;
+    width: 100%;
+    opacity: 0.9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+.carrucel img {
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    border-radius: 5px;
+}
+
+@keyframes slide {
+    0% {
+        margin-left: 0;
+    }
+
+    20% {
+        margin-left: 0;
+    }
+
+    25% {
+        margin-left: -100;
+    }
+
+    45% {
+        margin-left: -100%;
+    }
+
+    50% {
+        margin-left: -200%;
+    }
+
+    70% {
+        margin-left: -200%;
+    }
+
+    75% {
+        margin-left: -300%;
+    }
+
+    100% {
+        margin-left: -300%;
+    }
+
+}
+@media (max-width:760px) {
+    .carrucel {
+        width: 100%;
+    }
+    .carrucel ul {
+        width: calc(100px * 7); /* ancho menor para móvil */
+    }
+    .carrucel li {
+        flex: 0 0 100px;
+        height: 100px;
+        margin-right: 8px;
+    }
+    .carrucel img {
+        object-fit: cover;
+    }
+    .prod-carrucel {
+        font-size: 18px;
+        padding: 5px;
+        margin: 5px;
+    }
+}
+
+
+.footer {
+    background-color: #71543b;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 20px;
+    width: 100%;
+    box-shadow: 10px -10px 5px -5px rgba(107, 238, 105, 0.1);
+}
+
+.footer-iconos-sociales {
+    display: flex;
+    flex-direction: column; /* Para que el h2 quede encima de los íconos */
+    align-items: center;
+    gap: 20px;
+    padding: 40px 0;
+    background-color: #333; /* Opcional: para que resalte el área del footer */
+}
+
+footer h2 {
+    color: white;
+    font-size: 28px;
+}
+
+.footer-iconos-sociales h2 {
+    margin: 0;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+}
+
+.footer-iconos-sociales .iconos {
+    display: flex;
+    gap: 50px;
+    font-size: 40px;
+    justify-content: center;
+}
+
+.iconos {
+    font-size: 30px;
+    gap: 50px;
+    padding: 20px;
+    margin: 0;
+}
+
+#instagram:hover {
+    color: rgb(215, 50, 77);
+    transform: scale(1.1);
+
+}
+
+#facebook:hover {
+    color: rgb(5, 147, 194);
+    transform: scale(1.1);
+}
+
+#whatsapp:hover {
+    color: rgb(21, 238, 21);
+    transform: scale(1.1);
+
+}
+
+#correo:hover {
+    color: rgb(167, 162, 162);
+    transform: scale(1.1);
+
+}
+
+
+.menu-footer {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.menu-footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.menu-footer a:hover {
+    color: #40d7b9;
+    transform: scale(1.05);
+
+}
+
+.footer p {
+    width: 100%;
+    text-align: end;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-top: 15px;
+    font-size: 16px;
+    color: white;
+}
+
+@media screen and (max-width:760px) {
+    .footer {
+        flex-direction: column;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .footer h2 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .menu-footer {
+        font-size: 12px;
+        gap: 20px;
+    }
+
+    .footer p {
+        font-size: 5px;
+        text-align: left;
+        display: flex;
+        justify-content: end;
+        align-items: end;
+
+    }
+
+    .iconos {
+        font-size: 20px;
+    }
+}
+
+.abrir-me {
+    font-size: 40px;
+    color: #985e29;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    z-index: 1100;
+    padding: 25px;
+    margin: 10px;
+}
+
+.cont-menu {
+    background-color: #785739;
+    box-shadow: 2px 0px 5px rgba(66, 66, 66, 0.7);
+    width: 300px;
+    position: absolute;
+    top: 163px;
+    left: 0;
+    transition: all 0.6s ease;
+    transform: translateX(-100%);
+    z-index: 1000;
+}
+
+.cont-menu.active {
+    transform: translateX(0);
+}
+
+.cont-menu ul {
+    padding: 15px;
+    list-style: none;
+}
+
+.cont-menu ul li {
+    font-size: 20px;
+    padding: 10px 20px;
+    position: relative;
+}
+
+
+@media screen and (max-width: 760px) {
+    .abrir-me {
+        font-size: 23px;
+        color: #2f9d87;
+    }
+
+    .cont-menu {
+        width: fit-content;
+    }
+
+}
+
+.submenu {
+    margin-top: 0;
+    /* Elimina el espacio vertical entre el menú y el submenú */
+    margin-left: 10px;
+    /* Reduce el espacio horizontal entre el menú y el submenú */
+    visibility: hidden;
+    /* Ocultar el submenu por defecto */
+    opacity: 0;
+    /* Transición suave para mostrar el submenu */
+    position: absolute;
+    /* Posicionar el submenu relativo al padre */
+    left: 100%;
+    /* Mostrar el submenu al lado derecho del padre */
+    top: 0;
+    /* Asegura que el submenu esté alineado con el padre */
+    background-color: #785739;
+    /* Fondo del submenu */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    /* Sombra para el submenu */
+    transition: visibility 0.3s, opacity 0.3s ease-in-out;
+    /* Transición suave */
+
+}
+
+.cont-menu li:hover {
+    background-color: #2f9d87;
+}
+
+.prod:hover {
+    background-color: #2f9d87;
+}
+
+.cont-menu ul li:hover .submenu,
+.submenu:hover {
+    visibility: visible;
+    /* Mostrar el submenu al pasar el mouse */
+    opacity: 1;
+}
+
+.ocultable {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.ocultable.oculto {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Ocultar el main solo en pantallas pequeñas */
+main.oculto {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* Mostrar el contMenu independientemente */
+.cont-menu {
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.cont-menu.active {
+    transform: translateX(0);
+}

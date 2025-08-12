@@ -1,0 +1,104 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+  }
+  
+  header {
+    background: #2e7d32;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .usuario {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  .detalle {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .detalle img {
+    max-width: 300px;
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .detalle h2 {
+    margin: 10px 0;
+  }
+  
+  .detalle p {
+    margin: 5px 0;
+  }
+  
+  .detalle button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: 0.3s ease;
+  }
+  
+  .detalle button:hover {
+    opacity: 0.8;
+  }
+  
+  .notificacion {
+    background-color: #4caf50;
+    color: white;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    display: none;
+    text-align: center;
+  }
+  
+  .otros-productos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .otros-productos .producto {
+    background: white;
+    width: 200px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .otros-productos img {
+    width: 100%;
+    border-radius: 6px;
+  }
+  
+  .otros-productos h4 {
+    margin: 10px 0 5px;
+    font-size: 1em;
+  }
+  

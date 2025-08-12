@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/imagenes/imagen.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/inicio-sesion.css">
+    <script src="https://kit.fontawesome.com/f759a1b4ea.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <title>Inicio de sesi&oacute;n</title>
+</head>
+<body>
+    <header class="header">
+        <h1> AGROBELLOSO - COMERCIAL</h1>
+
+        <button id="abrir" class="abrir-nav"> <i class="bi bi-list"></i></button>
+        <nav id="nav" class="nav-menu">
+            <button id="cerrar" class="cerrar-menu" ><i class="bi bi-x-square"></i></button>
+
+            <ul class="nav-list">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+
+                <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <main class="ocultable">
+        <form action="#">
+            <h2>Iniciar Sesi&oacute;n</h2>
+            <div class="groups-form">
+                <label for="correo">Correo:</label>
+                <input type="text" id="correo" name="correo" required placeholder="ejemplo@gmail.com" >
+
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required placeholder="Tu contraseña"> 
+                <p class="error escondido">Error al Iniciar Sesión</p>
+                <button type="submit" class="button"> Iniciar Sesión</button>
+                <button type="reset" class="button">Borrar</button>
+
+            </div>
+
+            <div class="extras">
+                <!-- <a href="#">¿Olvidaste tu contraseña?</a>
+                <span>|</span> -->
+                <p>¿Todav&iacute;a no tines una cuenta? - <a href="crear-cuenta.html">Crear cuenta</a></p> 
+            </div>
+
+        </form>
+    </main>
+
+
+<footer class="footer">
+    <div class="footer__iconos-sociales">
+      <h2>Nuestras Redes Sociales</h2>
+      <div class="iconos">
+        <a href="#" target="_blank"><i class="fab fa-instagram" id="instagram"></i></a>
+        <a href="https://www.facebook.com/share/1HRDnueDYw/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f" id="facebook"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-whatsapp" id="whatsapp"></i></a>
+        <a href="#" target="_blank"><i class="fas fa-envelope" id="correo"></i></a>
+      </div>
+    </div>
+  
+    <div class="menu-footer">
+      <a href="/html/index.html">Inicio</a>
+      <a href="/html/sobre-nosotros.html">Sobre Nosotros</a>
+      <a href="/html/contacto.html">Contacto</a>
+    </div>
+  
+    <div>
+      <p> ©️ 2025 | Todos los derechos reservados de Agro-belloso-comercial.
+      </p>
+    </div>
+  </footer>
+
+<script src="/js/inicio-sesion.js"></script>
+</body>
+</html>

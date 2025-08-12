@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mis Favoritos</title>
+  <link rel="stylesheet" href="../css/detalle-producto.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">Agro-Belloso</div>
+    <div class="acciones-header">
+      <button onclick="window.location.href='/html/producto.html'">← Volver a Productos</button>
+    </div>
+  </header>
+
+  <main>
+    <h2>Mis Favoritos</h2>
+    <div id="favoritos-container"></div>
+  </main>
+
+  <script>
+    function resolveImgPath(imagen) {
+      if (!imagen) return "/imagenes/placeholder.png";
+      if (imagen.startsWith("http://") || imagen.startsWith("https://")) return imagen;
+      if (imagen.startsWith("/")) return imagen;
+      if (imagen.startsWith("imagenes/")) return "/" + imagen;
+      return "/imagenes/" + imagen;
+    }
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      const usuario = JSON.parse(localStorage.getItem("usuario"));
+      const container = document.getElementById("favoritos-container");
+
+      if (!usuario) {
+        container.innerHTML = "<p>Debes iniciar sesión para ver tus favoritos.</p>";
+        return;
+      }
+
+      let todosProductos = JSON.parse(localStorage.getItem("todosProductos")) || [];
+
+      // si no hay lista, la solicitamos al backend
+      if (!todosProductos || todosProductos.length === 0) {
+        try {
+          const res = await fetch("http://localhost:3000/productos");
+          if (res.ok) {
+            todosProductos = await res.json();
+            localStorage.setItem("todosProductos", JSON.stringify(todosProductos));
+          }
+        } catch (e) {
+          console.error("Error al descargar productos:", e);
+        }
+      }
+
+      const favoritos = JSON.parse(localStorage.getItem("favoritos")) || {};
+      const misFavoritosIds = (favoritos[usuario.id] || []).map(String);
+
+      if (misFavoritosIds.length === 0) {
+        container.innerHTML = "<p>No tienes productos favoritos guardados.</p>";
+        return;
+      }
+
+      const productosFavoritos = todosProductos.filter(p => misFavoritosIds.includes(String(p.id)));
+
+      productosFavoritos.forEach(p => {
+        const imgSrc = resolveImgPath(p.imagen);
+        const card = document.createElement("div");
+        card.className = "detalle";
+        card.innerHTML = `
+          <img src="${imgSrc}" alt="${p.nombre}" />
+          <h3>${p.nombre}</h3>
+          <p>${p.descripcion}</p>
+          <p><strong>Categoría:</strong> ${p.categoria}</p>
+          <div class="fav-actions">
+            <button class="ver-detalle">Ver detalle</button>
+            <button class="quitar-fav">Quitar favorito</button>
+          </div>
+        `;
+        card.querySelector(".ver-detalle").onclick = () => {
+          localStorage.setItem("productoSeleccionado", JSON.stringify(p));
+          localStorage.setItem("todosProductos", JSON.stringify(todosProductos));
+          window.location.href = "/html/detalle-producto.html";
+        };
+        card.querySelector(".quitar-fav").onclick = () => {
+          quitarFavorito(p.id, usuario.id);
+          card.remove();
+        };
+        container.appendChild(card);
+      });
+    });
+
+    function quitarFavorito(idProducto, usuarioId) {
+      const favoritos = JSON.parse(localStorage.getItem("favoritos")) || {};
+      if (!favoritos[usuarioId]) return;
+      favoritos[usuarioId] = favoritos[usuarioId].filter(id => String(id) !== String(idProducto));
+      localStorage.setItem("favoritos", JSON.stringify(favoritos));
+    }
+  </script>
+</body>
+</html>

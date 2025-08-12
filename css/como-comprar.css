@@ -1,0 +1,353 @@
+/* Reset básico */
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    background-color: #2f9d87;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 0;
+    color: #f3f0ed;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+}
+
+/* Header (igual a tu original para no romperlo) */
+.header {
+    white-space: nowrap;
+    background-color: #785739;
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 30px;
+    box-shadow: 10px 10px 10px rgba(0,0,0, 0.3);
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #fff;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+.nav-menu a{
+    color: white;
+}
+
+.nav-menu ul, button {
+    display: flex;
+    align-items: end;
+    font-size: 15px;
+    gap: 15px;
+}
+
+.nav-menu li, ul {
+    font-size: 22px;
+}
+
+.nav-menu li, button {
+    margin-right: 1.8rem;
+    gap: 5px;
+}
+
+.nav-menu a:hover {
+    color: #3edcbc;
+}
+
+.nav-menu li:first-child:hover {
+    background-color: transparent;
+    border: 1px solid #db0f2700;
+}
+
+.abrir-nav, .cerrar-menu {
+    display: none;
+}
+
+@media screen and (max-width: 560px) {
+    .abrir-nav, .cerrar-menu {
+        display: block;
+        cursor: pointer;
+        border: 0;
+        font-size: 1.25rem;
+        background-color: transparent;
+    }
+
+    .abrir-nav {
+        color:#a06d40;
+    }
+    .cerrar-menu {
+        color: #a06d40;
+    }
+    .nav-menu {
+        gap: 1rem;
+        display: flex;
+        align-items: end;
+        flex-direction: column;
+        position: absolute;   
+        top: 0;     
+        right: 0;
+        background-color: #785739;
+        padding: 1rem;
+        bottom: 0;
+        opacity: 0;
+        visibility: hidden;
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
+        transition: visibility 0.3s, opacity 0.3s ease-in-out;
+    }
+
+    .nav-menu.abierto {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-list {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+    }
+}
+
+/* Mejoras para el contenido central (como-comprar y pasos) */
+
+.como-comprar {
+    background-color: #f9f2f2;
+    color: #222;
+    padding: 40px 30px;
+    max-width: 850px;
+    width: 90%;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    text-align: left;
+    position: relative; /* Quité absolute para que sea responsive */
+    transform: none;
+    top: auto;
+    left: auto;
+    max-height: none;
+    opacity: 1;
+}
+
+.pasos {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-left: 0;
+}
+
+.pasos li {
+    background-color: white;
+    border: 1.5px solid #d5cbcb;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 18px 22px;
+    font-weight: 600;
+    font-size: 18px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pasos li:hover {
+    background-color: #e0f7f5;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    cursor: default;
+}
+
+.pasos li::before {
+    content: "✔";
+    color: #16f337;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+/* Footer (igual al tuyo) */
+.footer {
+    background-color: #a06d40;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 20px;
+    width: 100%;
+    box-shadow: 10px -10px 5px -5px rgba(107, 238, 105, 0.1);
+}
+
+.footer-iconos-sociales {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #847272;
+}
+
+footer h2 {
+    color: #42dbbc;
+}
+
+.footer-iconos-sociales h2 {
+    margin: 0;
+    font-size: 16px;
+    color: white;
+}
+
+.footer-iconos-sociales .iconos {
+    display: flex;
+    gap: 19px;
+    font-size: 25px;
+}
+
+.iconos {
+    font-size: 30px;
+    gap: 20px;
+    padding: 10px;
+    margin: 5px;
+}
+
+#instagram:hover {
+    color: rgb(215, 50, 77);
+}
+
+#facebook:hover {
+    color: rgb(5, 147, 194);
+}
+
+#whatsapp:hover {
+    color: rgb(21, 238, 21);
+}
+
+#correo:hover {
+    color: rgb(167, 162, 162);
+}
+
+.menu-footer {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.menu-footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.menu-footer a:hover {
+    color: #40dabb;
+}
+
+.footer p {
+    width: 100%;
+    text-align: end;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-top: 15px;
+    font-size: 16px;
+    color: white;
+}
+
+@media screen and (max-width: 760px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+        gap: 5px;
+    }
+    .footer h2 {
+        font-size: 15px;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    .menu-footer {
+        font-size: 10px;
+        gap: 5px;
+        justify-content: center;
+        text-align: center;
+        flex-wrap: wrap;
+    }
+    .footer p {
+        font-size: 12px;
+        text-align: center;
+        margin-top: 5px;
+    }
+    .iconos {
+        font-size: 20px;
+        gap: 10px;
+    }
+}
+
+/* Ocultable */
+.ocultable {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.ocultable.oculto {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Ocultar el main solo en pantallas pequeñas */
+main.oculto {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* Responsive para el contenido central */
+@media screen and (max-width: 760px) {
+    .como-comprar {
+        padding: 25px 20px;
+        width: 95%;
+    }
+    .pasos li {
+        font-size: 16px;
+        padding: 12px 16px;
+    }
+    .pasos li::before {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .como-comprar {
+        padding: 20px 15px;
+        width: 98%;
+    }
+    .pasos li {
+        font-size: 14px;
+        padding: 10px 14px;
+        gap: 10px;
+    }
+    .pasos li::before {
+        font-size: 16px;
+    }
+}

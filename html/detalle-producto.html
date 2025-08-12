@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detalle del Producto</title>
+  <link rel="stylesheet" href="../css/detalle-producto.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">Agro-Belloso</div>
+    <div class="usuario">
+      <i class="bi bi-person-circle"></i>
+      <span id="nombreUsuario">Invitado</span>
+      <button id="btnFavoritosHeader" title="Mis Favoritos">❤️</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="detalle-container"></div>
+
+    <div id="notificacion" class="notificacion" style="display:none;"></div>
+
+    <h3 class="otros-titulo">Otros productos relacionados</h3>
+    <div id="otros-productos" class="otros-productos"></div>
+
+    <div style="margin-top:20px;">
+      <button onclick="window.location.href='/html/producto.html'">← Volver a productos</button>
+      <button onclick="window.location.href='/html/favoritos.html'">Ver Favoritos</button>
+    </div>
+  </main>
+
+  <script src="../js/detalle-producto.js"></script>
+</body>
+</html>
